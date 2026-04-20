@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome - Early Bird</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button class="dark-toggle" onclick="toggleDark()">🌙</button>
+
+  <div class="login-card">
+    <h2 class="login-title" id="welcomeText">Welcome!</h2>
+    <p class="signup-text" id="userEmail"></p>
+
+    <button onclick="logoutUser()" class="login-btn" style="background: #e74c3c; margin-top: 20px;">Logout</button>
+  </div>
+
+  <!-- POPUP -->
+  <div class="popup-overlay" id="popup">
+    <div class="popup-box">
+      <div class="popup-icon" id="popupIcon">⚠️</div>
+      <p class="popup-msg" id="popupMsg">Message Yaha Aayega</p>
+      <button class="popup-btn" onclick="closePopup()">Thik Hai</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // Page load pe user ka naam dikhao
+    window.addEventListener('load', function() {
+      var currentUser = localStorage.getItem("currentUser");
+      if (currentUser) {
+        var user = JSON.parse(currentUser);
+        document.getElementById("welcomeText").innerText = "Welcome, " + user.name + "!";
+        document.getElementById("userEmail").innerText = user.email';'
+      } else {
+        window.location.href = "index.html";
+      }
+    });
+  </script>
+</body>
+</html>

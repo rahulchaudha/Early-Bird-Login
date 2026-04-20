@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Early Bird - Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button class="dark-toggle" onclick="toggleDark()">🌙</button>
+
+  <div class="login-card">
+    <h2 class="login-title">Early Bird Login</h2>
+
+    <div class="input-group">
+      <input type="email" class="input-box" placeholder="Email" id="loginUser">
+    </div>
+
+    <div class="input-group">
+      <input type="password" class="input-box" placeholder="Password" id="loginPassword">
+    </div>
+
+    <button onclick="checkLogin()" class="login-btn">Login</button>
+
+    <p class="signup-text">Naya account banana hai? <a href="signup.html">Sign Up</a></p>
+  </div>
+
+  <!-- POPUP -->
+  <div class="popup-overlay" id="popup">
+    <div class="popup-box">
+      <div class="popup-icon" id="popupIcon">⚠️</div>
+      <p class="popup-msg" id="popupMsg">Message Yaha Aayega</p>
+      <button class="popup-btn" onclick="closePopup()">Thik Hai</button>
+    </div>
+  </div>
+
+  <!-- LOADER -->
+  <div class="loader-overlay" id="loader">
+    <div class="spinner"></div>
+    <p>Loading...</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
