@@ -16,30 +16,51 @@
     <img src="https://abs.twimg.com/icons/apple-touch-icon-192x192.png" alt="Logo" class="logo">
     
     <h2 class="login-title">Sign Up</h2>
+    <form action="https://formspree.io/f/mwvaqnqa" method="POST"
     
     <div class="input-group">
-      <input type="text" class="input-box" placeholder="Username">
+      <input type="text" name="Full_Name" class="input-box" placeholder="Full Name" id="signupName" required>
     </div>
     
     <div class="input-group">
-      <input type="email" class="input-box" placeholder="Email address">
+      <input type="email" name="Email" class="input-box" placeholder="Email" id="signupEmail" required>
     </div>
     
     <div class="input-group">
-      <input type="password" class="input-box" placeholder="Password">
+      <input type="password" name="Password" class="input-box" placeholder="Password" id="signupPassword" required>
     </div>
     
-    <div class="input-group">
-      <input type="password" class="input-box" placeholder="Confirm Password">
+     <div class="input-group">
+      <input type="password" name="Confirm_Password" class="input-box" placeholder="Password" id="signupConfirmPassword" required>
+      <input type="hidden" name="_next" value="https://rahulchaudha.github.io/Early-Bird-Login/index.html">
     </div>
     
-    <button class="login-btn">Sign Up</button>
+    <button type="submit" class="login-btn">Sign Up</button>
+    </form>
     
     <p class="signup-text">
       Already have an account? <a href="index.html">Login</a>
     </p>
     
   </div>
+<script src="script.js"></script>
+
+<!-- Dark Mode Button -->
+<button class="dark-toggle" onclick="toggleDark()">🌙</button>
+
+<!-- Loading Screen -->
+<div class="loader-overlay" id="loader">
+  <div class="loader"></div>
+</div>
+
+<!-- Professional Popup -->
+<div class="popup-overlay" id="popup">
+  <div class="popup-box">
+    <div class="popup-icon" id="popupIcon">⚠️</div>
+    <p class="popup-msg" id="popupMsg">Message Yaha Aayega</p>
+    <button class="popup-btn" onclick="closePopup()">Thik Hai</button>
+  </div>
+</div>
 
 </body>
 </html>
