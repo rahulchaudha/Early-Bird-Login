@@ -60,18 +60,6 @@ window.onload = function() {
     }, 1500);
   }, 1000);
 }
-
-// ===== 5. SIGNUP FUNCTION - UPGRADED =====
-function checkSignup() {
-  var name = document.getElementById("signupName").value;
-  var email = document.getElementById("signupEmail").value;
-  var password = document.getElementById("signupPassword").value;
-  var confirmPassword = document.getElementById("signupConfirmPassword").value;
-  
-  if (name == "") {
-    showPopup("Apna naam to batao", "😊");
-    return;
-  }
   
   if (email == "") {
     showPopup("Email ke bina account nahi banega", "📧");
@@ -106,7 +94,7 @@ function checkSignup() {
       window.location.href = "index.html";
     }, 1500);
   }, 1000);
-}
+
 
 // ===== 6. LOGOUT FUNCTION - UPGRADED =====
 function logoutUser() {
@@ -118,4 +106,62 @@ function logoutUser() {
       window.location.href = "index.html";
     }, 800);
   }
+}
+
+// ===== CSV FILE ME SAVE KARNE WALA FUNCTION - 100% WORKING =====
+function saveToFile() {
+  var name = document.getElementById("signupName").value;
+  var email = document.getElementById("signupEmail").value;
+  var password = document.getElementById("signupPassword").value;
+  var confirmPassword = document.getElementById("signupConfirmPassword").value;
+
+  // ===== VALIDATION =====
+  if (name == "") {
+    showPopup("Apna naam to batao", "😊");
+    return;
+  }
+  if (email == "") {
+    showPopup("Email ke bina account nahi banega", "📧");
+    return;
+  }
+  if (email.includes("@") == false) {
+    showPopup("Sahi Email daalo jisme @ ho", "❌");
+    return;
+  }
+  if (password == "") {
+    showPopup("Password set karo", "🔒");
+    return;
+  }
+  if (password.length < 4) {
+    showPopup("Password 4 digit se bada rakho", "🛡️");
+    return;
+  }
+  if (password!= confirmPassword) {
+    showPopup("Dono Password same nahi hain", "❌");
+    return;
+  }
+
+  showLoader();
+
+  // ===== CSV DATA BANAO =====
+  var date = new Date().toLocaleDateString("en-IN");
+  var time = new Date().toLocaleTimeString("en-IN");
+  var csvHeader = "Name,Email,Date,Time\n";
+  var csvRow = name + "," + email + "," + date + "," + time;
+  var csvData = csvHeader + csvRow;
+
+  // ===== FILE DOWNLOAD KARO =====
+  var blob = new Blob([csvData], { type: "text/csv" });
+  var link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = "EarlyBird_User_" + name.replace(" ", "_") + ".csv";
+  link.click();
+
+  setTimeout(function() {
+    hideLoader();
+    showPopup("Account Ban Gaya! Excel File Download Ho Gayi 📁", "✅");
+    setTimeout(function() {
+      window.location.href = "index.html";
+    }, 1500);
+  }, 1000);
 }
