@@ -100,3 +100,123 @@ body {
   font-weight: 500;
   text-decoration: none;
 }
+
+/* ===== PROFESSIONAL POPUP ===== */
+.popup-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-box {
+  background: white;
+  padding: 30px 25px;
+  border-radius: 20px;
+  text-align: center;
+  width: 80%;
+  max-width: 320px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  animation: popUp 0.3s ease;
+}
+
+@keyframes popUp {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.popup-icon {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.popup-msg {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: #14171A;
+}
+
+.popup-btn {
+  background: #1DA1F2;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* ===== DARK MODE ===== */
+body.dark {
+  background: #15202B;
+}
+
+body.dark .login-card, body.dark .popup-box {
+  background: #192734;
+  color: white;
+}
+
+body.dark .input-box {
+  background: #253341;
+  border-color: #38444D;
+  color: white;
+}
+
+body.dark .popup-msg {
+  color: white;
+}
+
+.dark-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #1DA1F2;
+  color: white;
+  border: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+/* ===== LOADING ANIMATION ===== */
+.loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+body.dark .loader-overlay {
+  background: #15202B;
+}
+
+.loader {
+  border: 4px solid #F5F8FA;
+  border-top: 4px solid #1DA1F2;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
